@@ -1,0 +1,131 @@
+/* =========================================================
+   IC-NBITS 2027 – Global Styles & Design Tokens
+   ========================================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@400;500;600;700&display=swap');
+
+@import "tailwindcss";
+
+/* ── CSS Custom Properties (Design Tokens) ── */
+:root {
+  /* Brand colours */
+  --color-navy:       #1F3589;
+  --color-navy-dark:  #162870;
+  --color-navy-light: #2B4AAD;
+  --color-gold:       #E5A82B;
+  --color-gold-dark:  #C9901A;
+  --color-gold-light: #F2C15E;
+  --color-cream:      #FEF7E6;
+  --color-grey-blue:  #F3F4F9;
+
+  /* Text */
+  --color-text-dark:  #1A1A2E;
+  --color-text-body:  #4A4A6A;
+  --color-text-muted: #7A7A9A;
+
+  /* UI */
+  --color-white:      #FFFFFF;
+  --color-border:     #E2E4EF;
+
+  /* Typography */
+  --font-serif: 'Lora', Georgia, serif;
+  --font-sans:  'Inter', system-ui, sans-serif;
+
+  /* Spacing scale */
+  --section-py: 5rem;     /* 80px top/bottom padding for sections */
+  --section-px: 1.5rem;   /* horizontal page padding */
+}
+
+/* ── Tailwind v4 Theme Extension ── */
+@theme {
+  --color-navy:       #1F3589;
+  --color-navy-dark:  #162870;
+  --color-navy-light: #2B4AAD;
+  --color-gold:       #E5A82B;
+  --color-gold-dark:  #C9901A;
+  --color-gold-light: #F2C15E;
+  --color-cream:      #FEF7E6;
+  --color-grey-blue:  #F3F4F9;
+
+  --font-serif: 'Lora', Georgia, serif;
+  --font-sans:  'Inter', system-ui, sans-serif;
+}
+
+/* ── Base Reset & Defaults ── */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  font-family: var(--font-sans);
+  color: var(--color-text-dark);
+  background-color: var(--color-white);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ── Skip-to-content link ── */
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 1rem;
+  z-index: 9999;
+  padding: 0.5rem 1rem;
+  background: var(--color-navy);
+  color: #fff;
+  border-radius: 0 0 0.5rem 0.5rem;
+  font-weight: 600;
+  transition: top 0.2s;
+}
+.skip-link:focus {
+  top: 0;
+}
+
+/* ── Focus ring (keyboard navigation) ── */
+:focus-visible {
+  outline: 2px solid var(--color-gold);
+  outline-offset: 2px;
+}
+
+/* ── Smooth anchor scroll offset (for sticky nav) ── */
+[id] {
+  scroll-margin-top: 4.5rem;
+}
+
+/* ── Section gold underline helper ── */
+.gold-bar {
+  width: 3rem;
+  height: 3px;
+  background-color: var(--color-gold);
+  border-radius: 9999px;
+}
+
+/* ── Gold eyebrow label ── */
+.eyebrow {
+  font-family: var(--font-sans);
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-gold);
+}
+
+/* ── Utility: prevent layout shift for lazy images ── */
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/* ── Selection colour ── */
+::selection {
+  background: var(--color-gold-light);
+  color: var(--color-navy-dark);
+}
+
