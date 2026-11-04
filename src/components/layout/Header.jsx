@@ -52,39 +52,51 @@ import { conference } from "../../data/conference";
 
 export function Header() {
   return (
-    <header className="w-full bg-white px-4 py-2 md:px-8">
-      <div className="mx-auto flex max-w-7xl items-center gap-4">
+    <header className="w-full border-b border-[var(--color-border)] bg-white px-4 py-1.5 md:px-8">
+      <div className="mx-auto flex max-w-7xl items-center justify-between gap-4">
 
-        {/* SIES Logo - Left aligned */}
-        <a
-          href={conference.organiser.website}
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="SIES College of Management Studies"
-          className="shrink-0"
-        >
-          <img
-            src="/Siescoms-logo.png"
-            alt="SIES College of Management Studies logo"
-            className="h-9 w-auto object-contain sm:h-10"
+        {/* Left: SIES Logo + Conference Identity */}
+        <div className="flex min-w-0 items-center gap-3.5">
+          <a
+            href={conference.organiser.website}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="SIES College of Management Studies"
+            className="shrink-0"
+          >
+            <img
+              src="/Siescoms-logo.png"
+              alt="SIES College of Management Studies logo"
+              className="h-8 w-auto object-contain sm:h-9"
+            />
+          </a>
+
+          {/* Gold Divider */}
+          <div
+            className="h-9 w-[2px] shrink-0 bg-gold"
+            aria-hidden="true"
           />
-        </a>
 
-        {/* Gold Divider */}
-        <div
-          className="h-9 w-[2px] shrink-0 bg-gold"
-          aria-hidden="true"
-        />
+          <div className="min-w-0">
+            <h1 className="font-serif text-lg font-bold leading-tight text-navy sm:text-xl">
+              {conference.acronym}
+            </h1>
+            <p className="mt-0.5 truncate text-[10px] leading-snug text-[var(--color-text-body)] sm:text-xs">
+              {conference.fullName}
+            </p>
+          </div>
+        </div>
 
-        {/* Conference Identity */}
-        <div className="min-w-0">
-          <h1 className="font-serif text-lg font-bold leading-tight text-navy sm:text-xl">
-            {conference.acronym}
-          </h1>
-
-          <p className="mt-0.5 text-[10px] leading-snug text-[var(--color-text-body)] sm:text-xs">
-            {conference.fullName}
-          </p>
+        {/* Right: dates + host (fills the bar so it isn't empty) */}
+        <div className="hidden shrink-0 items-center gap-3 sm:flex">
+          <span
+            className="rounded-full border border-[#E5A82B]/30 bg-cream px-3 py-1 text-[11px] font-semibold text-navy"
+          >
+            {conference.dates}
+          </span>
+          <span className="hidden text-[11px] font-medium text-[var(--color-text-muted)] lg:inline">
+            Organised by SIES College of Management Studies
+          </span>
         </div>
 
       </div>

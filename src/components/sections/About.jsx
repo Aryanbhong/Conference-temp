@@ -78,12 +78,15 @@ import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import {
   CheckCircle2,
+  ChevronDown,
   ChevronLeft,
   ChevronRight,
-  Expand,
+  Globe2,
   Images,
+  Landmark,
   Pause,
   Play,
+  Sprout,
 } from 'lucide-react';
 
 import { SectionHeading } from '../ui/SectionHeading';
@@ -119,6 +122,24 @@ const bullets = [
   'Scopus and ABDC publication routes',
   'Conference proceedings with ISBN',
   'Hybrid participation for authors and delegates',
+];
+
+const storyCards = [
+  {
+    title: 'A Legacy of Excellence',
+    icon: Landmark,
+    text: 'Rooted in a rich legacy of academic excellence and social commitment, the South Indian Education Society (SIES), established in 1932, has consistently upheld the belief that education and research are powerful instruments of nation-building. Guided by this enduring philosophy, SIES College of Management Studies (SIESCOMS), Navi Mumbai, since its inception in 1995, has been committed to nurturing responsible leaders, advancing scholarly inquiry, and contributing meaningfully to society through high-quality research and knowledge dissemination.',
+  },
+  {
+    title: 'Our Conference',
+    icon: Globe2,
+    text: 'Aligned with this vision, SIESCOMS is organizing the International Research Conference on "Nation-Building through Innovation, Technology and Sustainability", envisioned as a global academic and professional forum dedicated to exploring how innovative thinking, technological advancement, and sustainable practices can collectively contribute to inclusive and resilient nation-building. The conference seeks to bring together researchers, academicians, policymakers, industry professionals, entrepreneurs, and development practitioners from across the world to exchange ideas, present cutting-edge research, and share best practices that support national progress in an increasingly interconnected and rapidly changing world.',
+  },
+  {
+    title: 'Building for the 21st Century',
+    icon: Sprout,
+    text: 'In the 21st century, nation-building extends beyond economic growth to encompass social equity, environmental responsibility, technological preparedness, and institutional strength. This conference recognizes that while innovation and technology serve as powerful enablers of development, their true impact can be realized only when guided by sustainability principles. By integrating these dimensions, the conference aims to foster meaningful dialogue and actionable insights toward building nations that are economically robust, socially inclusive, environmentally responsible, and technologically empowered.',
+  },
 ];
 
 /* =========================
@@ -301,10 +322,9 @@ function CampusSlideshow() {
             aria-current={activeIndex === index ? 'true' : undefined}
             className={`relative aspect-[4/3] overflow-hidden
               rounded-xl border-2 transition-all duration-300
-              ${
-                activeIndex === index
-                  ? 'border-[#E5A82B] opacity-100 shadow-lg'
-                  : 'border-transparent opacity-60 hover:opacity-100'
+              ${activeIndex === index
+                ? 'border-[#E5A82B] opacity-100 shadow-lg'
+                : 'border-transparent opacity-60 hover:opacity-100'
               }`}
           >
             <img
@@ -332,15 +352,145 @@ function CampusSlideshow() {
             onClick={() => setActiveIndex(index)}
             aria-label={`Go to slide ${index + 1}`}
             className={`h-1.5 rounded-full transition-all duration-500
-              ${
-                activeIndex === index
-                  ? 'w-10 bg-[#E5A82B]'
-                  : 'w-3 bg-[#1F3589]/20 hover:bg-[#1F3589]/40'
+              ${activeIndex === index
+                ? 'w-10 bg-[#E5A82B]'
+                : 'w-3 bg-[#1F3589]/20 hover:bg-[#1F3589]/40'
               }`}
           />
         ))}
       </div>
     </div>
+  );
+}
+
+/* =========================
+   STORY CARD
+========================= */
+
+function StoryCard({ card, index }) {
+  const [expanded, setExpanded] = useState(false);
+  const Icon = card.icon;
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 40 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.2 }}
+      transition={{
+        duration: 0.6,
+        delay: index * 0.14,
+        ease: [0.22, 1, 0.36, 1],
+      }}
+      className="group relative flex h-full flex-col overflow-hidden
+        rounded-[2rem] border border-navy/10
+        bg-white
+        shadow-[0_12px_45px_rgba(31,53,137,0.07)]
+        transition-all duration-500
+        hover:-translate-y-2 hover:border-gold/40
+        hover:shadow-[0_30px_70px_rgba(31,53,137,0.14)]"
+    >
+      {/* Top gradient hairline */}
+      <div
+        className="absolute inset-x-0 top-0 h-1.5
+          bg-gradient-to-r from-navy via-gold to-navy
+          opacity-0 transition-opacity duration-500
+          group-hover:opacity-100"
+        aria-hidden="true"
+      />
+
+      {/* Decorative glow */}
+      <div
+        className="pointer-events-none absolute -right-16 -top-16
+          h-52 w-52 rounded-full bg-gold/10 blur-3xl
+          opacity-50 transition-opacity duration-500
+          group-hover:opacity-100"
+        aria-hidden="true"
+      />
+
+      <div
+        className="relative z-10 flex h-full flex-col
+          gap-6 p-7 sm:p-8 md:flex-row md:gap-8"
+      >
+        {/* Icon tile */}
+        <div className="flex shrink-0 items-center justify-center">
+          <div
+            className="flex h-16 w-16 items-center justify-center
+              rounded-2xl bg-gradient-to-br
+              from-navy to-navy-light
+              text-gold shadow-lg
+              transition-all duration-500
+              group-hover:rotate-6 group-hover:scale-110"
+          >
+            <Icon size={28} strokeWidth={1.7} />
+          </div>
+        </div>
+
+        {/* Content */}
+        <div className="flex flex-1 flex-col">
+          {/* Title */}
+          <h3
+            className="font-serif text-xl font-bold
+              tracking-tight text-navy sm:text-2xl"
+            style={{ fontFamily: 'var(--font-serif)' }}
+          >
+            {card.title}
+          </h3>
+
+          {/* Gold accent */}
+          <div
+            className="mt-3 mb-5 h-1 w-12 rounded-full
+              bg-gradient-to-r from-gold to-gold-light
+              transition-all duration-500
+              group-hover:w-20"
+            aria-hidden="true"
+          />
+
+          {/* Collapsible body */}
+          <div className="relative flex-1">
+            <div
+              className="overflow-hidden
+              transition-[max-height] duration-700
+              ease-[cubic-bezier(0.22,1,0.36,1)]"
+              style={{ maxHeight: expanded ? 800 : 132 }}
+            >
+              <p className="text-sm leading-7
+              text-slate-600 sm:text-base sm:leading-8">
+                {card.text}
+              </p>
+            </div>
+
+            {/* Fade-out when collapsed */}
+            {!expanded && (
+              <div
+                className="pointer-events-none absolute inset-x-0
+                bottom-0 h-16
+                bg-gradient-to-t from-white to-transparent"
+                aria-hidden="true"
+              />
+            )}
+
+            {/* Toggle */}
+            <button
+              type="button"
+              onClick={() => setExpanded((prev) => !prev)}
+              aria-expanded={expanded}
+              className="relative mt-3 inline-flex items-center
+              gap-1.5 text-sm font-semibold
+              text-navy
+              transition-colors duration-300
+              hover:text-gold"
+            >
+              {expanded ? 'Show less' : 'Read more'}
+              <ChevronDown
+                size={16}
+                className={`transition-transform duration-300
+                ${expanded ? 'rotate-180' : ''}`}
+              />
+            </button>
+          </div>
+        </div>
+      </div>
+    </motion.div>
   );
 }
 
@@ -354,7 +504,7 @@ export function About() {
       id="about"
       aria-labelledby="about-heading"
       className="relative overflow-hidden
-        bg-white px-4 py-20 md:px-8 md:py-28"
+        bg-white px-4 py-14 md:px-8 md:py-20"
     >
       {/* Background decorations */}
       <div
@@ -371,89 +521,137 @@ export function About() {
         aria-hidden="true"
       />
 
-      <div className="relative z-10 mx-auto grid
-        w-full max-w-[1600px] grid-cols-1
-        items-center gap-12 lg:grid-cols-2 lg:gap-20">
+      <div className="relative z-10 mx-auto flex
+        w-full max-w-[1600px] flex-col gap-16 lg:gap-24">
 
-        {/* Campus slideshow */}
-        <div className="w-full">
-          <CampusSlideshow />
-        </div>
-
-        {/* About content */}
-        <div className="flex flex-col gap-6">
-          <SectionHeading
-            eyebrow="About the Conference"
-            title="A global forum for inclusive, resilient nations"
-            align="left"
+        {/* Centered pill header */}
+        <div className="relative flex flex-col items-center">
+          <div
+            className="pointer-events-none absolute -top-12
+              left-1/2 h-44 w-80 -translate-x-1/2
+              rounded-full bg-gold/10 blur-3xl"
+            aria-hidden="true"
           />
 
-          <p className="text-base leading-relaxed
-            text-[var(--color-text-body)]">
-            SIES College of Management Studies, Navi Mumbai,
-            brings together researchers, academicians,
-            policymakers and industry professionals to discuss
-            how innovation, technology and sustainability
-            together build the nation.
-          </p>
+          <span
+            className="inline-flex items-center gap-3
+              rounded-full border border-gold/30
+              bg-gold/10 px-4 py-2
+              text-[10px] sm:text-xs
+              font-bold uppercase tracking-[0.2em]
+              text-gold-dark
+              shadow-[0_4px_15px_rgba(229,168,43,0.06)]"
+          >
+            <span
+              className="h-1.5 w-1.5 rounded-full
+                bg-gold shadow-[0_0_8px_rgba(229,168,43,0.5)]"
+            />
+            About the Conference
+          </span>
+        </div>
 
-          <p className="text-base leading-relaxed
-            text-[var(--color-text-body)]">
-            IC-NBITS 2027 provides a platform for
-            interdisciplinary dialogue, collaborative research,
-            and knowledge exchange across management,
-            technology and sustainability domains, contributing
-            to India's vision of becoming a developed nation.
-          </p>
+        {/* Top: slideshow + about intro */}
+        <div className="grid grid-cols-1
+          items-center gap-12 lg:grid-cols-2 lg:gap-20">
 
-          {/* Conference highlights */}
-          <div className="mt-2 flex flex-col gap-4">
-            {bullets.map((item, index) => (
-              <motion.div
-                key={item}
-                initial={{ opacity: 0, x: 15 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{
-                  duration: 0.4,
-                  delay: index * 0.1,
-                }}
-                className="group flex items-center gap-4
-                  rounded-xl border border-[#1F3589]/5
-                  bg-[#FEF7E6]/50 p-4
-                  transition-all duration-300
-                  hover:border-[#E5A82B]/30
-                  hover:bg-[#FEF7E6]"
-              >
-                <div
-                  className="flex h-10 w-10 shrink-0
-                    items-center justify-center
-                    rounded-xl bg-white
-                    text-[#E5A82B] shadow-sm
-                    transition-all duration-300
-                    group-hover:bg-[#1F3589]
-                    group-hover:text-white"
-                >
-                  <CheckCircle2 size={20} />
-                </div>
-
-                <span className="text-sm font-medium
-                  text-[var(--color-text-body)]">
-                  {item}
-                </span>
-              </motion.div>
-            ))}
+          {/* Campus slideshow */}
+          <div className="w-full">
+            <CampusSlideshow />
           </div>
 
-          {/* Bottom accent */}
-          <div className="mt-2 flex items-center gap-3">
-            <div className="h-1 w-16 rounded-full
-              bg-gradient-to-r from-[#1F3589] to-[#E5A82B]" />
+          {/* About content */}
+          <div className="flex flex-col gap-6">
+            <SectionHeading
+              title="A global forum for inclusive, resilient nations"
+              align="left"
+            />
 
-            <span className="text-xs font-semibold
-              uppercase tracking-widest text-[#B8860B]">
-              IC-NBITS 2027
-            </span>
+            <p className="text-base leading-relaxed
+              text-[var(--color-text-body)]">
+              SIES College of Management Studies, Navi Mumbai,
+              brings together researchers, academicians,
+              policymakers and industry professionals to discuss
+              how innovation, technology and sustainability
+              together build the nation.
+            </p>
+
+            {/* Conference highlights */}
+            <div className="mt-2 flex flex-col gap-4">
+              {bullets.map((item, index) => (
+                <motion.div
+                  key={item}
+                  initial={{ opacity: 0, x: 15 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{
+                    duration: 0.4,
+                    delay: index * 0.1,
+                  }}
+                  className="group flex items-center gap-4
+                    rounded-xl border border-navy/5
+                    bg-cream/50 p-4
+                    transition-all duration-300
+                    hover:border-gold/30
+                    hover:bg-cream"
+                >
+                  <div
+                    className="flex h-10 w-10 shrink-0
+                      items-center justify-center
+                      rounded-xl bg-white
+                      text-gold shadow-sm
+                      transition-all duration-300
+                      group-hover:bg-navy
+                      group-hover:text-white"
+                  >
+                    <CheckCircle2 size={20} />
+                  </div>
+
+                  <span className="text-sm font-medium
+                    text-[var(--color-text-body)]">
+                    {item}
+                  </span>
+                </motion.div>
+              ))}
+            </div>
+
+            {/* Bottom accent */}
+            <div className="mt-2 flex items-center gap-3">
+              <div className="h-1 w-16 rounded-full
+                bg-gradient-to-r from-navy to-gold" />
+
+              <span className="text-xs font-semibold
+                uppercase tracking-widest text-gold-dark">
+                IC-NBITS 2027
+              </span>
+            </div>
+          </div>
+        </div>
+
+        {/* Three narrative cards – grouped in a distinct panel */}
+        <div
+          className="relative overflow-hidden rounded-[2.5rem]
+            border border-navy/10
+            bg-gradient-to-br from-cream via-white to-gold/5
+            px-4 py-10 sm:px-8 md:px-12 md:py-14
+            shadow-[0_20px_60px_rgba(31,53,137,0.06)]"
+        >
+          {/* Panel decorations */}
+          <div
+            className="pointer-events-none absolute -top-24 left-1/2
+              h-64 w-[36rem] -translate-x-1/2
+              rounded-full bg-gold/10 blur-3xl"
+            aria-hidden="true"
+          />
+          <div
+            className="pointer-events-none absolute -bottom-24 right-10
+              h-64 w-72 rounded-full bg-navy/10 blur-3xl"
+            aria-hidden="true"
+          />
+
+          <div className="relative z-10 flex flex-col gap-6">
+            {storyCards.map((card, index) => (
+              <StoryCard key={card.id} card={card} index={index} />
+            ))}
           </div>
         </div>
       </div>

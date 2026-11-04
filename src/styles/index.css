@@ -9,56 +9,66 @@
 /* ── CSS Custom Properties (Design Tokens) ── */
 :root {
   /* Brand colours */
-  --color-navy:       #1F3589;
-  --color-navy-dark:  #162870;
+  --color-navy: #1F3589;
+  --color-navy-dark: #162870;
   --color-navy-light: #2B4AAD;
-  --color-gold:       #E5A82B;
-  --color-gold-dark:  #C9901A;
+  --color-gold: #E5A82B;
+  --color-gold-dark: #C9901A;
   --color-gold-light: #F2C15E;
-  --color-cream:      #FEF7E6;
-  --color-grey-blue:  #F3F4F9;
+  --color-cream: #FEF7E6;
+  --color-grey-blue: #F3F4F9;
 
   /* Text */
-  --color-text-dark:  #1A1A2E;
-  --color-text-body:  #4A4A6A;
+  --color-text-dark: #1A1A2E;
+  --color-text-body: #4A4A6A;
   --color-text-muted: #7A7A9A;
 
   /* UI */
-  --color-white:      #FFFFFF;
-  --color-border:     #E2E4EF;
+  --color-white: #FFFFFF;
+  --color-border: #E2E4EF;
 
   /* Typography */
   --font-serif: 'Lora', Georgia, serif;
-  --font-sans:  'Inter', system-ui, sans-serif;
+  --font-sans: 'Inter', system-ui, sans-serif;
 
   /* Spacing scale */
-  --section-py: 5rem;     /* 80px top/bottom padding for sections */
-  --section-px: 1.5rem;   /* horizontal page padding */
+  --section-py: 5rem;
+  /* 80px top/bottom padding for sections */
+  --section-px: 1.5rem;
+  /* horizontal page padding */
 }
 
 /* ── Tailwind v4 Theme Extension ── */
 @theme {
-  --color-navy:       #1F3589;
-  --color-navy-dark:  #162870;
+  --color-navy: #1F3589;
+  --color-navy-dark: #162870;
   --color-navy-light: #2B4AAD;
-  --color-gold:       #E5A82B;
-  --color-gold-dark:  #C9901A;
+  --color-gold: #E5A82B;
+  --color-gold-dark: #C9901A;
   --color-gold-light: #F2C15E;
-  --color-cream:      #FEF7E6;
-  --color-grey-blue:  #F3F4F9;
+  --color-cream: #FEF7E6;
+  --color-grey-blue: #F3F4F9;
 
   --font-serif: 'Lora', Georgia, serif;
-  --font-sans:  'Inter', system-ui, sans-serif;
+  --font-sans: 'Inter', system-ui, sans-serif;
 }
 
 /* ── Base Reset & Defaults ── */
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 
 html {
   scroll-behavior: smooth;
   font-size: 16px;
+  /* Prevent any decorative element bleeding past the viewport from
+     creating horizontal page scroll. clip (where supported) avoids
+     making the document a scroll container, so the sticky navbar
+     keeps working; hidden is the fallback. */
+  overflow-x: hidden;
+  overflow-x: clip;
 }
 
 body {
@@ -68,6 +78,8 @@ body {
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  overflow-x: clip;
 }
 
 /* ── Skip-to-content link ── */
@@ -83,6 +95,7 @@ body {
   font-weight: 600;
   transition: top 0.2s;
 }
+
 .skip-link:focus {
   top: 0;
 }
@@ -128,4 +141,3 @@ img {
   background: var(--color-gold-light);
   color: var(--color-navy-dark);
 }
-

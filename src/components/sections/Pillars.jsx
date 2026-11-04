@@ -260,7 +260,7 @@ export function Pillars() {
       aria-labelledby="pillars-heading"
       className="
         relative isolate overflow-hidden
-        px-4 py-24 sm:px-8 sm:py-28 lg:px-12 lg:py-32
+        px-4 py-14 sm:px-8 sm:py-20 lg:px-12 lg:py-24
       "
       style={{ background: 'var(--color-grey-blue)' }}
     >
