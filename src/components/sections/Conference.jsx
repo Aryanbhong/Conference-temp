@@ -12,11 +12,6 @@ import {
 
 import { SectionHeading } from '../ui/SectionHeading';
 
-/* =========================
-   DATA
-   Replace with your actual conference people
-========================= */
-
 const conferencePeople = [
   {
     id: 1,
@@ -71,10 +66,6 @@ const preConferencePeople = [
   },
 ];
 
-/* =========================
-   PERSON CARD
-========================= */
-
 function PersonCard({ person, index }) {
   const initials = person.name
     .replace(/\[.*?\]/g, '')
@@ -103,14 +94,13 @@ function PersonCard({ person, index }) {
         hover:border-[#E5A82B]/60
         hover:shadow-[0_25px_60px_rgba(31,53,137,0.15)]"
     >
-      {/* Top gradient */}
       <div
         className="absolute inset-x-0 top-0 h-1
           bg-gradient-to-r from-[#1F3589]
           via-[#E5A82B] to-[#1F3589]"
       />
 
-      {/* Background decoration */}
+  
       <div
         className="pointer-events-none absolute -right-10
           -top-10 h-32 w-32 rounded-full
@@ -119,7 +109,6 @@ function PersonCard({ person, index }) {
           group-hover:bg-[#E5A82B]/20"
       />
 
-      {/* Avatar */}
       <div className="relative mb-5">
         <div
           className="absolute -inset-2 rounded-full
@@ -150,7 +139,7 @@ function PersonCard({ person, index }) {
         </div>
       </div>
 
-      {/* Person information */}
+
       <div className="relative z-10 flex flex-1 flex-col items-center">
         <span
           className="mb-3 rounded-full border
@@ -188,9 +177,6 @@ function PersonCard({ person, index }) {
   );
 }
 
-/* =========================
-   MAIN COMPONENT
-========================= */
 
 export function ConferencePeople() {
   const [activeTab, setActiveTab] = useState('conference');
@@ -221,8 +207,9 @@ export function ConferencePeople() {
       id="conference-people"
       className="relative isolate overflow-hidden
         bg-[#FEF7E6] px-4 py-20 md:px-8 md:py-28"
+      style={{ background: 'var(--color-white)' }}
     >
-      {/* Ambient backgrounds */}
+  
       <div
         className="pointer-events-none absolute -left-40
           top-20 h-96 w-96 rounded-full
@@ -241,22 +228,9 @@ export function ConferencePeople() {
 
         {/* Heading */}
         <div className="mb-12 text-center">
-          <div
-            className="mb-4 inline-flex items-center
-              gap-2 rounded-full border
-              border-[#E5A82B]/30 bg-white/70
-              px-4 py-2 backdrop-blur-md"
-          >
-            <Sparkles size={14} className="text-[#E5A82B]" />
 
-            <span className="text-xs font-bold uppercase
-              tracking-[0.2em] text-[#B8860B]">
-              Meet the Experts
-            </span>
-          </div>
 
           <SectionHeading
-            eyebrow="Conference & Pre-Conference"
             title="Knowledge. Innovation. Collaboration."
             id="conference-people-heading"
           />

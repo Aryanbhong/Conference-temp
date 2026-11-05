@@ -19,6 +19,7 @@ import { Committee } from '../components/sections/Committee';
 import { Registration } from '../components/sections/Registration';
 import { Contact } from '../components/sections/Contact';
 import ConferencePeople from '../components/sections/Conference';
+import BankDetails from '../components/sections/BankDetails';
 
 export function Home() {
   return (
@@ -39,6 +40,7 @@ export function Home() {
       <Guidelines />
       <Committee />
       <Registration />
+      <BankDetails/>
       <Contact />
     </main>
   );

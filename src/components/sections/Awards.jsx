@@ -31,11 +31,10 @@ export function Awards() {
       id="awards"
       aria-labelledby="awards-heading"
       className="py-20 px-4 md:px-8"
-      style={{ background: 'var(--color-grey-blue)' }}
+      style={{ background: 'var(--color-white)' }}
     >
       <div className="max-w-5xl mx-auto flex flex-col items-center gap-12">
         <SectionHeading
-          eyebrow="Awards"
           title="Best Research Paper Awards"
           subtitle="Recognising excellence in research across management and technology tracks."
           id="awards-heading"

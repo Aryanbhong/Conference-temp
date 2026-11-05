@@ -109,7 +109,7 @@ const stats = [
 
 export function QuickInfoBar() {
   return (
-    <section className="relative z-20 -mt-8 px-4 md:-mt-10 md:px-8">
+    <section className="relative z-20 -mt-8 px-4 md:-mt-10 md:px-8 bg-white">
       <div className="mx-auto max-w-5xl">
 
         {/* Glass Information Card */}

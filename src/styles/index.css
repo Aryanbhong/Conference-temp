@@ -141,3 +141,28 @@ img {
   background: var(--color-gold-light);
   color: var(--color-navy-dark);
 }
+
+body {
+  background: #F3EBDD;
+  color: #1F3589;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+#root {
+  min-height: 100vh;
+  background:
+    radial-gradient(
+      ellipse at 10% 10%,
+      rgba(229, 168, 43, 0.10),
+      transparent 35%
+    ),
+    radial-gradient(
+      ellipse at 90% 40%,
+      rgba(31, 53, 137, 0.06),
+      transparent 40%
+    ),
+    #F3EBDD;
+}

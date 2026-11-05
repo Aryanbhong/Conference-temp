@@ -1,79 +1,3 @@
-// /**
-//  * About.jsx – About the Conference section.
-//  */
-
-// import { CheckCircle2 } from 'lucide-react';
-// import { SectionHeading } from '../ui/SectionHeading';
-
-// const bullets = [
-//   'Scopus and ABDC publication routes',
-//   'Conference proceedings with ISBN',
-//   'Hybrid participation for authors and delegates',
-// ];
-
-// export function About() {
-//   return (
-//     <section
-//       id="about"
-//       aria-labelledby="about-heading"
-//       className="py-20 px-4 md:px-8"
-//       style={{ background: 'var(--color-white)' }}
-//     >
-//       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-//         {/* Image placeholder */}
-//         <div
-//           className="rounded-2xl overflow-hidden bg-navy aspect-[4/3] flex items-center justify-center
-//             border-4 border-navy/10 shadow-lg"
-//           aria-label="SIESCOMS campus photo placeholder"
-//         >
-//           <p className="text-white/50 text-sm text-center px-6">
-//             [PHOTO] SIESCOMS campus<br />
-//             <span className="text-xs">Replace with campus photo in /src/assets/</span>
-//           </p>
-//         </div>
-
-//         {/* Text content */}
-//         <div className="flex flex-col gap-5">
-//           <SectionHeading
-//             eyebrow="About the Conference"
-//             title="A global forum for inclusive, resilient nations"
-//             align="left"
-//           />
-
-//           <p className="text-[var(--color-text-body)] text-base leading-relaxed">
-//             SIES College of Management Studies, Navi Mumbai, brings together researchers,
-//             academicians, policymakers and industry professionals to discuss how innovation,
-//             technology and sustainability together build the nation.
-//           </p>
-
-//           <p className="text-[var(--color-text-body)] text-base leading-relaxed">
-//             IC-NBITS 2027 provides a platform for interdisciplinary dialogue, collaborative
-//             research, and knowledge exchange across management, technology and sustainability
-//             domains, contributing to India's vision of becoming a developed nation.
-//           </p>
-
-//           {/* Checkmark bullets */}
-//           <ul className="flex flex-col gap-3 mt-2">
-//             {bullets.map((item) => (
-//               <li key={item} className="flex items-start gap-3">
-//                 <CheckCircle2
-//                   size={20}
-//                   className="text-gold shrink-0 mt-0.5"
-//                   aria-hidden="true"
-//                 />
-//                 <span className="text-[var(--color-text-body)] text-sm font-medium">{item}</span>
-//               </li>
-//             ))}
-//           </ul>
-//         </div>
-//       </div>
-//     </section>
-//   );
-// }
-
-// export default About;
-
-
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import {
@@ -91,30 +15,26 @@ import {
 
 import { SectionHeading } from '../ui/SectionHeading';
 
-/* =========================
-   SLIDESHOW DATA
-========================= */
-
 const campusImages = [
   {
     src: '/images/image-1.jpg',
-    title: 'SIESCOMS Campus',
-    description: 'A centre for academic excellence',
+    title: '..',
+    description: '....',
   },
   {
     src: '/images/image-2.jpg',
-    title: 'Learning & Innovation',
-    description: 'Where ideas become impact',
+    title: '...',
+    description: '...',
   },
   {
     src: '/images/image-3.jpg',
-    title: 'Academic Community',
-    description: 'Building connections and knowledge',
+    title: '....',
+    description: '...',
   },
   {
     src: '/images/image-4.jpg',
-    title: 'Research & Collaboration',
-    description: 'Inspiring the next generation',
+    title: '....',
+    description: '...',
   },
 ];
 
@@ -142,10 +62,6 @@ const storyCards = [
   },
 ];
 
-/* =========================
-   CAMPUS SLIDESHOW
-========================= */
-
 function CampusSlideshow() {
   const [activeIndex, setActiveIndex] = useState(0);
   const [isPlaying, setIsPlaying] = useState(true);
@@ -172,7 +88,7 @@ function CampusSlideshow() {
 
   return (
     <div className="group relative w-full">
-      {/* Outer decorative glow */}
+      {/* Outer Decorative Glow */}
       <div
         className="absolute -inset-3 rounded-[2rem]
           bg-gradient-to-br from-[#E5A82B]/30
@@ -182,7 +98,7 @@ function CampusSlideshow() {
         aria-hidden="true"
       />
 
-      {/* Main slideshow */}
+      {/* Main Slideshow */}
       <div
         className="relative aspect-[4/3] overflow-hidden
           rounded-3xl border border-white/50
@@ -202,7 +118,7 @@ function CampusSlideshow() {
           />
         </AnimatePresence>
 
-        {/* Image overlay */}
+        {/* Image Overlay */}
         <div
           className="absolute inset-0 bg-gradient-to-t
             from-[#101B40]/90 via-[#101B40]/10
@@ -210,7 +126,7 @@ function CampusSlideshow() {
           aria-hidden="true"
         />
 
-        {/* Top label */}
+        {/* Top Label */}
         <div className="absolute left-5 top-5 z-10">
           <div
             className="flex items-center gap-2
@@ -224,7 +140,7 @@ function CampusSlideshow() {
           </div>
         </div>
 
-        {/* Slide counter */}
+        {/* Slide Counter */}
         <div
           className="absolute right-5 top-5 z-10
             rounded-full border border-white/20
@@ -237,7 +153,7 @@ function CampusSlideshow() {
           {String(campusImages.length).padStart(2, '0')}
         </div>
 
-        {/* Image caption */}
+        {/* Image Caption */}
         <AnimatePresence mode="wait">
           <motion.div
             key={activeImage.title}
@@ -251,8 +167,7 @@ function CampusSlideshow() {
             <div className="mb-3 h-1 w-12 rounded-full bg-[#E5A82B]" />
 
             <h3
-              className="text-2xl font-bold text-white
-                md:text-3xl"
+              className="text-2xl font-bold text-white md:text-3xl"
               style={{ fontFamily: 'var(--font-serif)' }}
             >
               {activeImage.title}
@@ -264,7 +179,7 @@ function CampusSlideshow() {
           </motion.div>
         </AnimatePresence>
 
-        {/* Previous / Next */}
+        {/* Previous Button */}
         <button
           type="button"
           onClick={previousSlide}
@@ -280,6 +195,7 @@ function CampusSlideshow() {
           <ChevronLeft size={22} />
         </button>
 
+        {/* Next Button */}
         <button
           type="button"
           onClick={nextSlide}
@@ -311,7 +227,7 @@ function CampusSlideshow() {
         </button>
       </div>
 
-      {/* Thumbnail navigation */}
+      {/* Thumbnail Navigation */}
       <div className="mt-5 grid grid-cols-4 gap-3">
         {campusImages.map((image, index) => (
           <button
@@ -322,9 +238,10 @@ function CampusSlideshow() {
             aria-current={activeIndex === index ? 'true' : undefined}
             className={`relative aspect-[4/3] overflow-hidden
               rounded-xl border-2 transition-all duration-300
-              ${activeIndex === index
-                ? 'border-[#E5A82B] opacity-100 shadow-lg'
-                : 'border-transparent opacity-60 hover:opacity-100'
+              ${
+                activeIndex === index
+                  ? 'border-[#E5A82B] opacity-100 shadow-lg'
+                  : 'border-transparent opacity-60 hover:opacity-100'
               }`}
           >
             <img
@@ -337,24 +254,25 @@ function CampusSlideshow() {
             />
 
             {activeIndex === index && (
-              <div className="absolute inset-0
-                bg-[#1F3589]/10" />
+              <div className="absolute inset-0 bg-[#1F3589]/10" />
             )}
           </button>
         ))}
       </div>
 
-      {/* Progress indicators */}
+      {/* Progress Indicators */}
       <div className="mt-4 flex items-center justify-center gap-2">
         {campusImages.map((image, index) => (
           <button
             key={image.src}
+            type="button"
             onClick={() => setActiveIndex(index)}
             aria-label={`Go to slide ${index + 1}`}
             className={`h-1.5 rounded-full transition-all duration-500
-              ${activeIndex === index
-                ? 'w-10 bg-[#E5A82B]'
-                : 'w-3 bg-[#1F3589]/20 hover:bg-[#1F3589]/40'
+              ${
+                activeIndex === index
+                  ? 'w-10 bg-[#E5A82B]'
+                  : 'w-3 bg-[#1F3589]/20 hover:bg-[#1F3589]/40'
               }`}
           />
         ))}
@@ -362,10 +280,6 @@ function CampusSlideshow() {
     </div>
   );
 }
-
-/* =========================
-   STORY CARD
-========================= */
 
 function StoryCard({ card, index }) {
   const [expanded, setExpanded] = useState(false);
@@ -382,26 +296,26 @@ function StoryCard({ card, index }) {
         ease: [0.22, 1, 0.36, 1],
       }}
       className="group relative flex h-full flex-col overflow-hidden
-        rounded-[2rem] border border-navy/10
-        bg-white
-        shadow-[0_12px_45px_rgba(31,53,137,0.07)]
+        rounded-[2rem] border border-[#1F3589]/[0.08]
+        bg-[#FFFCF7]
+        shadow-[0_12px_45px_rgba(31,53,137,0.06)]
         transition-all duration-500
-        hover:-translate-y-2 hover:border-gold/40
-        hover:shadow-[0_30px_70px_rgba(31,53,137,0.14)]"
+        hover:-translate-y-2 hover:border-[#E5A82B]/40
+        hover:shadow-[0_30px_70px_rgba(31,53,137,0.12)]"
     >
-      {/* Top gradient hairline */}
+      {/* Top Gradient Hairline */}
       <div
         className="absolute inset-x-0 top-0 h-1.5
-          bg-gradient-to-r from-navy via-gold to-navy
+          bg-gradient-to-r from-[#1F3589] via-[#E5A82B] to-[#1F3589]
           opacity-0 transition-opacity duration-500
           group-hover:opacity-100"
         aria-hidden="true"
       />
 
-      {/* Decorative glow */}
+      {/* Decorative Glow */}
       <div
         className="pointer-events-none absolute -right-16 -top-16
-          h-52 w-52 rounded-full bg-gold/10 blur-3xl
+          h-52 w-52 rounded-full bg-[#E5A82B]/10 blur-3xl
           opacity-50 transition-opacity duration-500
           group-hover:opacity-100"
         aria-hidden="true"
@@ -411,13 +325,13 @@ function StoryCard({ card, index }) {
         className="relative z-10 flex h-full flex-col
           gap-6 p-7 sm:p-8 md:flex-row md:gap-8"
       >
-        {/* Icon tile */}
+        {/* Icon Tile */}
         <div className="flex shrink-0 items-center justify-center">
           <div
             className="flex h-16 w-16 items-center justify-center
               rounded-2xl bg-gradient-to-br
-              from-navy to-navy-light
-              text-gold shadow-lg
+              from-[#1F3589] to-[#344F9B]
+              text-[#F8D878] shadow-lg
               transition-all duration-500
               group-hover:rotate-6 group-hover:scale-110"
           >
@@ -427,64 +341,66 @@ function StoryCard({ card, index }) {
 
         {/* Content */}
         <div className="flex flex-1 flex-col">
-          {/* Title */}
           <h3
             className="font-serif text-xl font-bold
-              tracking-tight text-navy sm:text-2xl"
+              tracking-tight text-[#1F3589] sm:text-2xl"
             style={{ fontFamily: 'var(--font-serif)' }}
           >
             {card.title}
           </h3>
 
-          {/* Gold accent */}
+          {/* Gold Accent */}
           <div
             className="mt-3 mb-5 h-1 w-12 rounded-full
-              bg-gradient-to-r from-gold to-gold-light
+              bg-gradient-to-r from-[#E5A82B] to-[#F4D58A]
               transition-all duration-500
               group-hover:w-20"
             aria-hidden="true"
           />
 
-          {/* Collapsible body */}
+          {/* Collapsible Body */}
           <div className="relative flex-1">
             <div
               className="overflow-hidden
-              transition-[max-height] duration-700
-              ease-[cubic-bezier(0.22,1,0.36,1)]"
+                transition-[max-height] duration-700
+                ease-[cubic-bezier(0.22,1,0.36,1)]"
               style={{ maxHeight: expanded ? 800 : 132 }}
             >
-              <p className="text-sm leading-7
-              text-slate-600 sm:text-base sm:leading-8">
+              <p
+                className="text-sm leading-7
+                  text-[#646B7A] sm:text-base sm:leading-8"
+              >
                 {card.text}
               </p>
             </div>
 
-            {/* Fade-out when collapsed */}
+            {/* Fade-out */}
             {!expanded && (
               <div
                 className="pointer-events-none absolute inset-x-0
-                bottom-0 h-16
-                bg-gradient-to-t from-white to-transparent"
+                  bottom-0 h-16
+                  bg-gradient-to-t from-[#FFFCF7] to-transparent"
                 aria-hidden="true"
               />
             )}
 
-            {/* Toggle */}
+            {/* Read More Toggle */}
             <button
               type="button"
               onClick={() => setExpanded((prev) => !prev)}
               aria-expanded={expanded}
               className="relative mt-3 inline-flex items-center
-              gap-1.5 text-sm font-semibold
-              text-navy
-              transition-colors duration-300
-              hover:text-gold"
+                gap-1.5 text-sm font-semibold
+                text-[#1F3589]
+                transition-colors duration-300
+                hover:text-[#C18B18]"
             >
               {expanded ? 'Show less' : 'Read more'}
+
               <ChevronDown
                 size={16}
                 className={`transition-transform duration-300
-                ${expanded ? 'rotate-180' : ''}`}
+                  ${expanded ? 'rotate-180' : ''}`}
               />
             </button>
           </div>
@@ -494,80 +410,68 @@ function StoryCard({ card, index }) {
   );
 }
 
-/* =========================
-   ABOUT SECTION
-========================= */
-
 export function About() {
   return (
     <section
       id="about"
       aria-labelledby="about-heading"
       className="relative overflow-hidden
-        bg-white px-4 py-14 md:px-8 md:py-20"
+        bg-[#FAF8F2] px-4 pt-4 pb-12
+        md:px-8 md:pt-8 md:pb-20"
     >
-      {/* Background decorations */}
+      {/* Background Decorations */}
       <div
-        className="pointer-events-none absolute -left-32
-          top-20 h-80 w-80 rounded-full
-          bg-[#E5A82B]/5 blur-3xl"
+        className="pointer-events-none absolute -left-40
+          top-20 h-[500px] w-[500px] rounded-full
+          bg-[#E5A82B]/[0.07] blur-[120px]"
         aria-hidden="true"
       />
 
       <div
-        className="pointer-events-none absolute -right-32
-          bottom-0 h-96 w-96 rounded-full
-          bg-[#1F3589]/5 blur-3xl"
+        className="pointer-events-none absolute -right-40
+          top-[35%] h-[600px] w-[600px] rounded-full
+          bg-[#1F3589]/[0.06] blur-[140px]"
         aria-hidden="true"
       />
 
-      <div className="relative z-10 mx-auto flex
-        w-full max-w-[1600px] flex-col gap-16 lg:gap-24">
+      <div
+        className="pointer-events-none absolute bottom-0
+          left-[30%] h-[400px] w-[500px] rounded-full
+          bg-[#E5A82B]/[0.05] blur-[120px]"
+        aria-hidden="true"
+      />
 
-        {/* Centered pill header */}
-        <div className="relative flex flex-col items-center">
-          <div
-            className="pointer-events-none absolute -top-12
-              left-1/2 h-44 w-80 -translate-x-1/2
-              rounded-full bg-gold/10 blur-3xl"
-            aria-hidden="true"
-          />
+      <div
+        className="relative z-10 mx-auto flex
+          w-full max-w-[1600px] flex-col gap-10
+          lg:gap-16"
+      >
+        {/* Main Heading */}
+        <SectionHeading
+          title="About the Conference"
+        />
 
-          <span
-            className="inline-flex items-center gap-3
-              rounded-full border border-gold/30
-              bg-gold/10 px-4 py-2
-              text-[10px] sm:text-xs
-              font-bold uppercase tracking-[0.2em]
-              text-gold-dark
-              shadow-[0_4px_15px_rgba(229,168,43,0.06)]"
-          >
-            <span
-              className="h-1.5 w-1.5 rounded-full
-                bg-gold shadow-[0_0_8px_rgba(229,168,43,0.5)]"
-            />
-            About the Conference
-          </span>
-        </div>
-
-        {/* Top: slideshow + about intro */}
-        <div className="grid grid-cols-1
-          items-center gap-12 lg:grid-cols-2 lg:gap-20">
-
-          {/* Campus slideshow */}
+        {/* Slideshow + Introduction */}
+        <div
+          className="grid grid-cols-1
+            items-center gap-12 lg:grid-cols-2 lg:gap-20"
+        >
+          {/* Campus Slideshow */}
           <div className="w-full">
             <CampusSlideshow />
           </div>
 
-          {/* About content */}
+          {/* About Content */}
           <div className="flex flex-col gap-6">
             <SectionHeading
               title="A global forum for inclusive, resilient nations"
               align="left"
             />
 
-            <p className="text-base leading-relaxed
-              text-[var(--color-text-body)]">
+            <p
+              className="text-base leading-relaxed
+                text-[var(--color-text-body)]"
+            >
               SIES College of Management Studies, Navi Mumbai,
               brings together researchers, academicians,
               policymakers and industry professionals to discuss
@@ -575,7 +479,7 @@ export function About() {
               together build the nation.
             </p>
 
-            {/* Conference highlights */}
+            {/* Conference Highlights */}
             <div className="mt-2 flex flex-col gap-4">
               {bullets.map((item, index) => (
                 <motion.div
@@ -588,69 +492,81 @@ export function About() {
                     delay: index * 0.1,
                   }}
                   className="group flex items-center gap-4
-                    rounded-xl border border-navy/5
-                    bg-cream/50 p-4
+                    rounded-xl border border-[#1F3589]/[0.06]
+                    bg-[#F3EFE6]/80 p-4
                     transition-all duration-300
-                    hover:border-gold/30
-                    hover:bg-cream"
+                    hover:border-[#E5A82B]/30
+                    hover:bg-[#EDE5D5]"
                 >
                   <div
                     className="flex h-10 w-10 shrink-0
                       items-center justify-center
-                      rounded-xl bg-white
-                      text-gold shadow-sm
+                      rounded-xl bg-[#FFFCF7]
+                      text-[#C18B18] shadow-sm
                       transition-all duration-300
-                      group-hover:bg-navy
+                      group-hover:bg-[#1F3589]
                       group-hover:text-white"
                   >
                     <CheckCircle2 size={20} />
                   </div>
 
-                  <span className="text-sm font-medium
-                    text-[var(--color-text-body)]">
+                  <span
+                    className="text-sm font-medium
+                      text-[var(--color-text-body)]"
+                  >
                     {item}
                   </span>
                 </motion.div>
               ))}
             </div>
 
-            {/* Bottom accent */}
+            {/* Bottom Accent */}
             <div className="mt-2 flex items-center gap-3">
-              <div className="h-1 w-16 rounded-full
-                bg-gradient-to-r from-navy to-gold" />
+              <div
+                className="h-1 w-16 rounded-full
+                  bg-gradient-to-r from-[#1F3589] to-[#E5A82B]"
+              />
 
-              <span className="text-xs font-semibold
-                uppercase tracking-widest text-gold-dark">
+              <span
+                className="text-xs font-semibold
+                  uppercase tracking-widest text-[#9B7116]"
+              >
                 IC-NBITS 2027
               </span>
             </div>
           </div>
         </div>
 
-        {/* Three narrative cards – grouped in a distinct panel */}
+        {/* Conference Story Cards */}
         <div
           className="relative overflow-hidden rounded-[2.5rem]
-            border border-navy/10
-            bg-gradient-to-br from-cream via-white to-gold/5
+            border border-[#1F3589]/[0.08]
+            bg-gradient-to-br
+            from-[#F5F0E5] via-[#FFFCF6] to-[#F4EDE0]
             px-4 py-10 sm:px-8 md:px-12 md:py-14
-            shadow-[0_20px_60px_rgba(31,53,137,0.06)]"
+            shadow-[0_20px_60px_rgba(31,53,137,0.08)]"
         >
-          {/* Panel decorations */}
+          {/* Panel Decorations */}
           <div
             className="pointer-events-none absolute -top-24 left-1/2
               h-64 w-[36rem] -translate-x-1/2
-              rounded-full bg-gold/10 blur-3xl"
+              rounded-full bg-[#E5A82B]/10 blur-3xl"
             aria-hidden="true"
           />
+
           <div
             className="pointer-events-none absolute -bottom-24 right-10
-              h-64 w-72 rounded-full bg-navy/10 blur-3xl"
+              h-64 w-72 rounded-full bg-[#1F3589]/10 blur-3xl"
             aria-hidden="true"
           />
 
           <div className="relative z-10 flex flex-col gap-6">
             {storyCards.map((card, index) => (
-              <StoryCard key={card.id} card={card} index={index} />
+              <StoryCard
+                key={card.title}
+                card={card}
+                index={index}
+              />
             ))}
           </div>
         </div>

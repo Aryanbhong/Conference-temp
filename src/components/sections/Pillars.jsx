@@ -1,79 +1,3 @@
-// /**
-//  * Pillars.jsx – Three conference pillars: Innovation, Technology, Sustainability.
-//  */
-
-// import { SectionHeading } from '../ui/SectionHeading';
-
-// const pillars = [
-//   {
-//     id: 1,
-//     title: 'Innovation',
-//     description:
-//       'Innovative ideas, digital transformation and cutting-edge solutions for nation-building challenges.',
-//   },
-//   {
-//     id: 2,
-//     title: 'Technology',
-//     description:
-//       'Technology that strengthens institutions, enables growth and empowers citizens across sectors.',
-//   },
-//   {
-//     id: 3,
-//     title: 'Sustainability',
-//     description:
-//       'Sustainable practices, ESG principles and responsible leadership for inclusive development.',
-//   },
-// ];
-
-// export function Pillars() {
-//   return (
-//     <section
-//       aria-labelledby="pillars-heading"
-//       className="py-20 px-4 md:px-8"
-//       style={{ background: 'var(--color-grey-blue)' }}
-//     >
-//       <div className="max-w-7xl mx-auto flex flex-col items-center gap-12">
-//         <SectionHeading
-//           eyebrow="Conference Pillars"
-//           title="Three themes, one purpose"
-//           id="pillars-heading"
-//         />
-
-//         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 w-full">
-//           {pillars.map((pillar) => (
-//             <article
-//               key={pillar.id}
-//               className="flex flex-col items-center text-center gap-4 bg-white rounded-2xl p-8 shadow-sm border border-[var(--color-border)]"
-//             >
-//               {/* Numbered circle */}
-//               <div
-//                 className="w-16 h-16 rounded-full border-2 border-gold flex items-center justify-center
-//                   text-2xl font-bold text-gold"
-//                 style={{ fontFamily: 'var(--font-serif)' }}
-//                 aria-hidden="true"
-//               >
-//                 {pillar.id}
-//               </div>
-
-//               <h3
-//                 className="text-navy font-bold text-xl"
-//                 style={{ fontFamily: 'var(--font-serif)' }}
-//               >
-//                 {pillar.title}
-//               </h3>
-//               <p className="text-[var(--color-text-body)] text-sm leading-relaxed">
-//                 {pillar.description}
-//               </p>
-//             </article>
-//           ))}
-//         </div>
-//       </div>
-//     </section>
-//   );
-// }
-
-// export default Pillars;
-
 
 /**
  * Pillars.jsx – Premium conference pillars section.
@@ -262,7 +186,7 @@ export function Pillars() {
         relative isolate overflow-hidden
         px-4 py-14 sm:px-8 sm:py-20 lg:px-12 lg:py-24
       "
-      style={{ background: 'var(--color-grey-blue)' }}
+        style={{ background: 'var(--color-white)' }}
     >
       {/* Ambient background decoration */}
       <div
@@ -287,7 +211,6 @@ export function Pillars() {
         {/* Section heading */}
         <div className="max-w-3xl">
           <SectionHeading
-            eyebrow="Conference Pillars"
             title="Three themes, one purpose"
             subtitle="Exploring the transformative forces shaping a sustainable, innovative and technology-driven nation."
           />

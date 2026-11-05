@@ -1,7 +1,3 @@
-/**
- * Contact.jsx – Venue, contact details, and Google Map embed.
- */
-
 import { MapPin, Mail, Phone, ExternalLink } from 'lucide-react';
 import { SectionHeading } from '../ui/SectionHeading';
 import { conference } from '../../data/conference';
@@ -16,7 +12,6 @@ export function Contact() {
     >
       <div className="max-w-7xl mx-auto flex flex-col items-center gap-12">
         <SectionHeading
-          eyebrow="Contact"
           title="Get in touch"
           id="contact-heading"
         />

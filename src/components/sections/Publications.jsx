@@ -1,7 +1,3 @@
-/**
- * Publications.jsx – Publication partners: journals and proceedings.
- */
-
 import { ExternalLink, BookOpen, FileText } from 'lucide-react';
 import { SectionHeading } from '../ui/SectionHeading';
 import { Card } from '../ui/Card';
@@ -13,11 +9,10 @@ export function Publications() {
       id="publications"
       aria-labelledby="publications-heading"
       className="py-20 px-4 md:px-8"
-      style={{ background: 'var(--color-grey-blue)' }}
+      style={{ background: 'var(--color-white)' }}
     >
       <div className="max-w-7xl mx-auto flex flex-col items-center gap-12">
         <SectionHeading
-          eyebrow="Publications"
           title="Publication opportunities"
           subtitle="Selected papers will be recommended for publication in Scopus / ABDC indexed journals."
           id="publications-heading"

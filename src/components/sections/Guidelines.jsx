@@ -106,7 +106,7 @@ export function Guidelines() {
       id="guidelines"
       aria-labelledby="guidelines-heading"
       className="py-20 px-4 md:px-8"
-      style={{ background: 'var(--color-grey-blue)' }}
+      style={{ background: 'var(--color-white)' }}
     >
       <div className="max-w-4xl mx-auto flex flex-col items-center gap-12">
         <SectionHeading
