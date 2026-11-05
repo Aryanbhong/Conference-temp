@@ -1,17 +1,17 @@
 
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { 
-  Building2, 
-  CreditCard, 
-  Hash, 
-  FileCode, 
-  MapPin, 
-  Copy, 
-  Check, 
+import {
+  Building2,
+  CreditCard,
+  Hash,
+  FileCode,
+  MapPin,
+  Copy,
+  Check,
   ShieldCheck,
   Info,
-  ArrowRight
+  ArrowRight,
 } from 'lucide-react';
 import { SectionHeading } from '../ui/SectionHeading';
 
@@ -42,26 +42,37 @@ export function BankDetails() {
   ];
 
   return (
-    <section id="bank-details" className="bg-[#F8F5EC] px-4 py-16 sm:px-8 sm:py-20 lg:px-12">
-      <div className="mx-auto flex max-w-5xl flex-col items-center gap-10">
-        <div className="max-w-3xl text-center">
+    <section
+      id="bank-details"
+      className="bg-[#F8F5EC] px-4 py-12 sm:px-6 sm:py-14 lg:px-8"
+    >
+      <div className="mx-auto flex max-w-4xl flex-col items-center gap-7">
+        <div className="max-w-2xl text-center">
           <SectionHeading
             title="Official Bank Account Details"
             subtitle="Participants paying via NEFT, RTGS, or IMPS direct bank transfer must remit registration fees to the official college account below."
           />
         </div>
 
-        <div className="w-full overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
-          <div className="border-b border-slate-200 bg-[#1F3589] px-6 py-5 text-white sm:px-8">
-            <div className="flex flex-col gap-1 sm:flex-row sm:items-center sm:justify-between">
-              <div className="flex items-center gap-2.5">
-                <ShieldCheck size={20} className="text-[#E5A82B]" />
-                <h3 className="font-serif text-lg font-bold text-white">SIESCOMS Conference Account Credentials</h3>
+        <div className="w-full overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm">
+          {/* Header */}
+          <div className="border-b border-slate-200 bg-[#1F3589] px-4 py-4 text-white sm:px-5">
+            <div className="flex flex-col gap-1.5 sm:flex-row sm:items-center sm:justify-between">
+              <div className="flex items-center gap-2">
+                <ShieldCheck size={17} className="shrink-0 text-[#E5A82B]" />
+
+                <h3 className="font-serif text-sm font-bold text-white sm:text-base">
+                  SIESCOMS Conference Account Credentials
+                </h3>
               </div>
-              <span className="text-xs text-slate-200">Mode: NEFT / RTGS / IMPS</span>
+
+              <span className="text-[10px] text-slate-200 sm:text-xs">
+                Mode: NEFT / RTGS / IMPS
+              </span>
             </div>
           </div>
 
+          {/* Bank Details */}
           <div className="divide-y divide-slate-100">
             {detailsList.map((item, idx) => {
               const Icon = item.icon;
@@ -70,17 +81,26 @@ export function BankDetails() {
               return (
                 <div
                   key={item.key}
-                  className={`flex flex-col justify-between gap-2 px-6 py-4 transition-colors sm:flex-row sm:items-center sm:px-8 ${
+                  className={`flex flex-col justify-between gap-2.5 px-4 py-3 transition-colors sm:flex-row sm:items-center sm:px-5 ${
                     idx % 2 === 0 ? 'bg-white' : 'bg-slate-50/60'
                   }`}
                 >
-                  <div className="flex items-center gap-3 sm:w-2/5">
-                    <Icon size={16} className="shrink-0 text-[#1F3589]" />
-                    <span className="text-xs font-bold uppercase tracking-wider text-slate-600">{item.label}</span>
+                  <div className="flex items-center gap-2.5 sm:w-2/5">
+                    <Icon size={14} className="shrink-0 text-[#1F3589]" />
+
+                    <span className="text-[10px] font-bold uppercase tracking-wider text-slate-600 sm:text-xs">
+                      {item.label}
+                    </span>
                   </div>
 
-                  <div className="flex flex-1 items-center justify-between gap-4 sm:justify-end">
-                    <span className={`text-sm font-semibold text-slate-900 ${item.isMono ? 'font-mono tracking-tight text-[#1F3589]' : ''}`}>
+                  <div className="flex min-w-0 flex-1 items-center justify-between gap-3 sm:justify-end">
+                    <span
+                      className={`min-w-0 break-words text-xs font-semibold text-slate-900 sm:text-sm ${
+                        item.isMono
+                          ? 'font-mono tracking-tight text-[#1F3589]'
+                          : ''
+                      }`}
+                    >
                       {item.value}
                     </span>
 
@@ -88,16 +108,18 @@ export function BankDetails() {
                       <button
                         type="button"
                         onClick={() => handleCopy(item.value, item.key)}
-                        className="inline-flex shrink-0 items-center gap-1 rounded-md border border-slate-200 bg-white px-2.5 py-1 text-xs font-medium text-slate-700 shadow-2xs hover:border-[#1F3589] hover:bg-slate-50"
+                        className="inline-flex shrink-0 items-center gap-1 rounded-md border border-slate-200 bg-white px-2 py-1 text-[10px] font-medium text-slate-700 shadow-2xs hover:border-[#1F3589] hover:bg-slate-50 sm:text-xs"
                       >
                         {isCopied ? (
                           <>
-                            <Check size={13} className="text-emerald-600" />
-                            <span className="text-emerald-700 font-semibold">Copied</span>
+                            <Check size={11} className="text-emerald-600" />
+                            <span className="font-semibold text-emerald-700">
+                              Copied
+                            </span>
                           </>
                         ) : (
                           <>
-                            <Copy size={13} className="text-slate-400" />
+                            <Copy size={11} className="text-slate-400" />
                             <span>Copy</span>
                           </>
                         )}
@@ -109,13 +131,18 @@ export function BankDetails() {
             })}
           </div>
 
-          <div className="border-t border-slate-200 bg-[#FEF7E6]/60 p-6 sm:p-8">
-            <div className="flex flex-col gap-5 md:flex-row md:items-center md:justify-between">
-              <div className="flex items-start gap-3">
-                <Info size={18} className="mt-0.5 shrink-0 text-[#855800]" />
+          {/* Submission Requirement */}
+          <div className="border-t border-slate-200 bg-[#FEF7E6]/60 p-4 sm:p-5">
+            <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
+              <div className="flex items-start gap-2.5">
+                <Info size={15} className="mt-0.5 shrink-0 text-[#855800]" />
+
                 <div className="space-y-1">
-                  <h4 className="text-xs font-bold uppercase tracking-wider text-[#855800]">Mandatory Submission Requirement</h4>
-                  <p className="text-xs leading-relaxed text-slate-600">
+                  <h4 className="text-[10px] font-bold uppercase tracking-wider text-[#855800] sm:text-xs">
+                    Mandatory Submission Requirement
+                  </h4>
+
+                  <p className="text-[11px] leading-relaxed text-slate-600 sm:text-xs">
                     After completing the wire transfer, save your transaction UTR / Reference number and upload the payment receipt via our verification portal.
                   </p>
                 </div>
@@ -125,10 +152,10 @@ export function BankDetails() {
               <button
                 type="button"
                 onClick={() => navigate('/upload-payment-proof')}
-                className="inline-flex shrink-0 items-center justify-center gap-2 rounded-lg bg-[#1F3589] px-6 py-3 text-xs font-bold uppercase tracking-wider text-white shadow-sm transition-all hover:bg-[#101D4B] hover:gap-3"
+                className="inline-flex shrink-0 items-center justify-center gap-2 rounded-lg bg-[#1F3589] px-4 py-2.5 text-[10px] font-bold uppercase tracking-wider text-white shadow-sm transition-all hover:bg-[#101D4B] hover:gap-3 sm:text-xs"
               >
                 <span>Submit Proof of Payment</span>
-                <ArrowRight size={14} />
+                <ArrowRight size={13} />
               </button>
             </div>
           </div>

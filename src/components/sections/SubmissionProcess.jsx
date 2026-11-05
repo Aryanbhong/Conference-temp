@@ -1,63 +1,3 @@
-// /**
-//  * SubmissionProcess.jsx – 4-step horizontal stepper.
-//  */
-
-// import { SectionHeading } from '../ui/SectionHeading';
-// import { Stepper } from '../ui/Stepper';
-
-// const steps = [
-//   {
-//     id: 1,
-//     title: 'Create account',
-//     description: 'Register on the paper submission portal',
-//     isHighlighted: false,
-//   },
-//   {
-//     id: 2,
-//     title: 'Submit paper',
-//     description: 'Upload your paper in the prescribed format',
-//     isHighlighted: false,
-//   },
-//   {
-//     id: 3,
-//     title: 'Review & acceptance',
-//     description: 'Intimation within one week of submission',
-//     isHighlighted: false,
-//   },
-//   {
-//     id: 4,
-//     title: 'Register & present',
-//     description: 'Pay the fee and present at the conference',
-//     isHighlighted: true,
-//   },
-// ];
-
-// export function SubmissionProcess() {
-//   return (
-//     <section
-//       aria-labelledby="submission-process-heading"
-//       className="py-20 px-4 md:px-8"
-//       style={{ background: 'var(--color-white)' }}
-//     >
-//       <div className="max-w-5xl mx-auto flex flex-col items-center gap-14">
-//         <SectionHeading
-//           eyebrow="How to Participate"
-//           title="Submission process"
-//           id="submission-process-heading"
-//         />
-//         <Stepper steps={steps} className="w-full" />
-//       </div>
-//     </section>
-//   );
-// }
-
-// export default SubmissionProcess;
-
-
-
-/**
- * SubmissionProcess.jsx – Animated glowing submission stepper.
- */
 
 import { motion } from "motion/react";
 import { SectionHeading } from "../ui/SectionHeading";
@@ -94,8 +34,8 @@ export function SubmissionProcess() {
   return (
     <section
       aria-labelledby="submission-process-heading"
-      className="relative isolate overflow-hidden px-4 py-24 md:px-8"
-      style={{ background: 'var(--color-white)' }}
+      className="relative isolate overflow-hidden px-4 py-14 sm:px-6 md:px-8 md:py-16"
+      style={{ background: "var(--color-white)" }}
     >
       {/* Ambient glow */}
       <div
@@ -122,7 +62,7 @@ export function SubmissionProcess() {
         }}
       />
 
-      <div className="relative mx-auto flex max-w-6xl flex-col items-center gap-16">
+      <div className="relative mx-auto flex max-w-5xl flex-col items-center gap-10 md:gap-12">
         {/* Heading */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -132,7 +72,6 @@ export function SubmissionProcess() {
           className="text-center"
         >
           <SectionHeading
-            eyebrow="How to Participate"
             title="Submission process"
             id="submission-process-heading"
           />
@@ -142,7 +81,7 @@ export function SubmissionProcess() {
             whileInView={{ width: 100 }}
             viewport={{ once: true }}
             transition={{ delay: 0.4, duration: 0.8 }}
-            className="mx-auto mt-5 h-[3px] rounded-full"
+            className="mx-auto mt-4 h-[3px] rounded-full"
             style={{
               background: "linear-gradient(90deg, #1F3589, #E5A82B)",
               boxShadow: "0 0 14px rgba(229, 168, 43, 0.4)",
@@ -156,7 +95,7 @@ export function SubmissionProcess() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="relative w-full rounded-3xl border p-6 md:p-10"
+          className="relative w-full rounded-2xl border p-4 sm:p-5 md:p-7"
           style={{
             background: "rgba(255, 255, 255, 0.72)",
             borderColor: "rgba(31, 53, 137, 0.12)",
@@ -166,16 +105,16 @@ export function SubmissionProcess() {
           }}
         >
           {/* Top label */}
-          <div className="mb-10 flex items-center justify-between">
+          <div className="mb-6 flex items-center justify-between sm:mb-7">
             <span
-              className="text-xs font-bold uppercase tracking-[0.25em]"
+              className="text-[10px] font-bold uppercase tracking-[0.25em] sm:text-xs"
               style={{ color: "#1F3589" }}
             >
               Your journey
             </span>
 
             <span
-              className="rounded-full border px-4 py-1.5 text-xs font-semibold"
+              className="rounded-full border px-3 py-1 text-[10px] font-semibold sm:px-4 sm:py-1.5 sm:text-xs"
               style={{
                 color: "#B8860B",
                 background: "rgba(229, 168, 43, 0.08)",
@@ -202,7 +141,7 @@ export function SubmissionProcess() {
               repeat: Infinity,
               ease: "easeInOut",
             }}
-            className="mx-auto mt-12 h-[2px] w-2/3 rounded-full"
+            className="mx-auto mt-7 h-[2px] w-2/3 rounded-full"
             style={{
               background:
                 "linear-gradient(90deg, transparent, #E5A82B, #1F3589, transparent)",
@@ -217,7 +156,7 @@ export function SubmissionProcess() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.5, duration: 0.6 }}
-          className="max-w-xl text-center text-sm leading-7 md:text-base"
+          className="max-w-lg text-center text-xs leading-6 sm:text-sm sm:leading-7"
           style={{ color: "rgba(31, 53, 137, 0.7)" }}
         >
           From submitting your research to presenting your ideas,
@@ -232,5 +171,3 @@ export function SubmissionProcess() {
 }
 
 export default SubmissionProcess;
-
-

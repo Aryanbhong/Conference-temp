@@ -1,22 +1,18 @@
-/**
- * Footer.jsx – Conference footer with links, contact, social icons.
- */
 
 import { ExternalLink, Share2, AtSign, Rss } from 'lucide-react';
 import { conference } from '../../data/conference';
 import { navLinks } from '../../data/navLinks';
 
-// Lucide v1+ removed Twitter/Instagram/Linkedin; use generic social icons
 const socialIcons = {
-  twitter:   AtSign,    // X / Twitter
-  instagram: Share2,    // Instagram
-  linkedin:  Rss,       // LinkedIn
+  twitter: AtSign,
+  instagram: Share2,
+  linkedin: Rss,
 };
 
 const socialLabels = {
-  twitter:   'X (Twitter)',
+  twitter: 'X (Twitter)',
   instagram: 'Instagram',
-  linkedin:  'LinkedIn',
+  linkedin: 'LinkedIn',
 };
 
 const handleScroll = (id) => (e) => {
@@ -29,27 +25,30 @@ export function Footer() {
 
   return (
     <footer className="bg-navy text-white" aria-label="Site footer">
-      <div className="max-w-7xl mx-auto px-4 md:px-8 py-12 grid grid-cols-1 md:grid-cols-3 gap-10">
+      <div className="max-w-5xl mx-auto px-4 md:px-6 py-8 grid grid-cols-1 md:grid-cols-3 gap-8">
         {/* Brand column */}
-        <div className="flex flex-col gap-4">
+        <div className="flex flex-col gap-3">
           <h2
-            className="font-bold text-xl text-white"
+            className="font-bold text-lg text-white"
             style={{ fontFamily: 'var(--font-serif)' }}
           >
             {conference.acronym}
           </h2>
-          <p className="text-white/70 text-sm leading-relaxed">
+
+          <p className="text-white/70 text-xs leading-relaxed">
             {conference.fullName}
           </p>
-          <p className="text-white/60 text-xs">
+
+          <p className="text-white/60 text-[11px]">
             Organised by {conference.organiser.fullName}, Nerul, Navi Mumbai.
           </p>
 
           {/* Social icons */}
-          <div className="flex gap-3 mt-2">
+          <div className="flex gap-2.5 mt-1">
             {Object.entries(conference.social).map(([platform, url]) => {
               const Icon = socialIcons[platform];
               if (!Icon) return null;
+
               return (
                 <a
                   key={platform}
@@ -57,9 +56,9 @@ export function Footer() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={`Follow on ${socialLabels[platform] ?? platform}`}
-                  className="w-9 h-9 rounded-full bg-white/10 hover:bg-gold flex items-center justify-center transition-colors duration-200"
+                  className="w-8 h-8 rounded-full bg-white/10 hover:bg-gold flex items-center justify-center transition-colors duration-200"
                 >
-                  <Icon size={16} aria-hidden="true" />
+                  <Icon size={14} aria-hidden="true" />
                 </a>
               );
             })}
@@ -68,16 +67,17 @@ export function Footer() {
 
         {/* Quick links */}
         <nav aria-label="Footer navigation">
-          <h3 className="font-semibold text-sm uppercase tracking-widest text-gold mb-4">
+          <h3 className="font-semibold text-xs uppercase tracking-widest text-gold mb-3">
             Quick Links
           </h3>
-          <ul className="flex flex-col gap-2">
+
+          <ul className="flex flex-col gap-1.5">
             {navLinks.map((link) => (
               <li key={link.id}>
                 <a
                   href={`#${link.id}`}
                   onClick={handleScroll(link.id)}
-                  className="text-sm text-white/70 hover:text-gold transition-colors duration-150"
+                  className="text-xs text-white/70 hover:text-gold transition-colors duration-150"
                 >
                   {link.label}
                 </a>
@@ -88,11 +88,13 @@ export function Footer() {
 
         {/* Contact */}
         <div>
-          <h3 className="font-semibold text-sm uppercase tracking-widest text-gold mb-4">
+          <h3 className="font-semibold text-xs uppercase tracking-widest text-gold mb-3">
             Contact
           </h3>
-          <address className="not-italic flex flex-col gap-2 text-sm text-white/70">
+
+          <address className="not-italic flex flex-col gap-1.5 text-xs text-white/70">
             <p>{conference.organiser.address}</p>
+
             {conference.contact.emails.map((email) => (
               <a
                 key={email}
@@ -102,6 +104,7 @@ export function Footer() {
                 {email}
               </a>
             ))}
+
             {conference.contact.phones.map((phone) => (
               <a
                 key={phone}
@@ -112,19 +115,21 @@ export function Footer() {
               </a>
             ))}
           </address>
+
           <a
             href={conference.existingSiteUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-1.5 text-xs text-gold hover:text-gold-light mt-4 transition-colors"
+            className="inline-flex items-center gap-1 text-[11px] text-gold hover:text-gold-light mt-3 transition-colors"
           >
-            Visit current site <ExternalLink size={12} aria-hidden="true" />
+            Visit current site
+            <ExternalLink size={10} aria-hidden="true" />
           </a>
         </div>
       </div>
 
       {/* Bottom bar */}
-      <div className="border-t border-white/10 py-4 text-center text-xs text-white/40 px-4">
+      <div className="border-t border-white/10 py-3 text-center text-[11px] text-white/40 px-4">
         &copy; {year} {conference.acronym} · {conference.organiser.shortName}. All rights reserved.
       </div>
     </footer>

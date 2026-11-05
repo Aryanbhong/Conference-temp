@@ -1,9 +1,4 @@
 
-/**
- * Pillars.jsx – Premium conference pillars section.
- * Themes: Innovation, Technology, Sustainability.
- */
-
 import { motion } from 'motion/react';
 import {
   Lightbulb,
@@ -186,7 +181,7 @@ export function Pillars() {
         relative isolate overflow-hidden
         px-4 py-14 sm:px-8 sm:py-20 lg:px-12 lg:py-24
       "
-        style={{ background: 'var(--color-white)' }}
+      style={{ background: 'var(--color-white)' }}
     >
       {/* Ambient background decoration */}
       <div
@@ -207,7 +202,8 @@ export function Pillars() {
         aria-hidden="true"
       />
 
-      <div className="relative mx-auto flex max-w-[1500px] flex-col items-center gap-16 lg:gap-20">
+      {/* Width reduced to match About section */}
+      <div className="relative mx-auto flex w-full max-w-6xl flex-col items-center gap-16 lg:gap-20">
         {/* Section heading */}
         <div className="max-w-3xl">
           <SectionHeading
@@ -217,7 +213,7 @@ export function Pillars() {
         </div>
 
         {/* Pillar cards */}
-        <div className="grid w-full grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 lg:gap-8">
+        <div className="grid w-full grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 lg:gap-5">
           {pillars.map((pillar, index) => (
             <PillarCard
               key={pillar.id}
@@ -237,11 +233,6 @@ export function Pillars() {
             text-center
           "
         >
-          <Sparkles className="text-gold" size={22} />
-
-          <p className="font-serif text-lg italic leading-relaxed text-navy/70 sm:text-xl">
-            “Connecting ideas, advancing technology, and building a sustainable future.”
-          </p>
         </motion.div>
       </div>
     </section>

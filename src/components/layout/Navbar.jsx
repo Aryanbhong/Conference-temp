@@ -1,8 +1,3 @@
-/**
- * Navbar.jsx – Sticky navy navigation bar with smooth-scroll links,
- * active-section highlighting (via useActiveSection hook),
- * and a hamburger menu on mobile.
- */
 
 import { useState, useCallback } from 'react';
 import { Menu, X } from 'lucide-react';
@@ -29,7 +24,7 @@ export function Navbar() {
 
   const linkClass = (id) =>
     [
-      'relative text-sm font-medium transition-colors duration-200 pb-0.5',
+      'relative text-xs font-medium transition-colors duration-200 pb-0.5',
       'after:absolute after:bottom-0 after:left-0 after:h-0.5 after:bg-gold after:transition-all after:duration-200',
       activeId === id
         ? 'text-gold after:w-full'
@@ -41,9 +36,9 @@ export function Navbar() {
       className="sticky top-0 z-50 w-full bg-navy shadow-md"
       aria-label="Main navigation"
     >
-      <div className="max-w-7xl mx-auto px-4 md:px-8 flex items-center h-14 gap-6">
+      <div className="max-w-5xl mx-auto px-4 md:px-6 flex items-center h-12 gap-4">
         {/* Desktop links */}
-        <ul className="hidden lg:flex items-center gap-6 flex-1">
+        <ul className="hidden lg:flex items-center gap-5 flex-1">
           {navLinks.map((link) => (
             <li key={link.id}>
               <a
@@ -71,20 +66,24 @@ export function Navbar() {
           </Button>
         </div>
 
-        {/* Mobile: hamburger */}
+        {/* Mobile hamburger */}
         <div className="lg:hidden flex items-center justify-between w-full">
-          <span className="text-white font-bold text-sm" style={{ fontFamily: 'var(--font-serif)' }}>
+          <span
+            className="text-white font-bold text-xs"
+            style={{ fontFamily: 'var(--font-serif)' }}
+          >
             IC-NBITS 2027
           </span>
+
           <button
             type="button"
             onClick={() => setMobileOpen((o) => !o)}
             aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
             aria-expanded={mobileOpen}
             aria-controls="mobile-menu"
-            className="text-white p-1.5 rounded focus-visible:ring-2 focus-visible:ring-gold"
+            className="text-white p-1 rounded focus-visible:ring-2 focus-visible:ring-gold"
           >
-            {mobileOpen ? <X size={22} /> : <Menu size={22} />}
+            {mobileOpen ? <X size={19} /> : <Menu size={19} />}
           </button>
         </div>
       </div>
@@ -93,7 +92,7 @@ export function Navbar() {
       {mobileOpen && (
         <div
           id="mobile-menu"
-          className="lg:hidden bg-navy-dark border-t border-white/10 px-4 pb-4"
+          className="lg:hidden bg-navy-dark border-t border-white/10 px-4 pb-3"
         >
           <ul className="flex flex-col gap-1 pt-2">
             {navLinks.map((link) => (
@@ -102,7 +101,7 @@ export function Navbar() {
                   href={`#${link.id}`}
                   onClick={handleNavClick(link.id)}
                   className={[
-                    'block px-3 py-2 rounded-md text-sm font-medium transition-colors duration-150',
+                    'block px-3 py-1.5 rounded-md text-xs font-medium transition-colors duration-150',
                     activeId === link.id
                       ? 'bg-white/10 text-gold'
                       : 'text-white/80 hover:bg-white/5 hover:text-white',
@@ -114,7 +113,8 @@ export function Navbar() {
               </li>
             ))}
           </ul>
-          <div className="mt-3 px-3">
+
+          <div className="mt-2.5 px-3">
             <Button
               variant="accent"
               size="sm"
@@ -133,4 +133,3 @@ export function Navbar() {
 }
 
 export default Navbar;
-

@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import {
@@ -321,29 +322,30 @@ function StoryCard({ card, index }) {
         aria-hidden="true"
       />
 
-      <div
-        className="relative z-10 flex h-full flex-col
-          gap-6 p-7 sm:p-8 md:flex-row md:gap-8"
+      {/* Reduced card padding and spacing */}
+      <div className="relative z-10 flex h-full flex-col
+        gap-4 p-5 sm:p-6 md:flex-row md:gap-6"
       >
-        {/* Icon Tile */}
+        {/* Smaller Icon Tile */}
         <div className="flex shrink-0 items-center justify-center">
           <div
-            className="flex h-16 w-16 items-center justify-center
+            className="flex h-12 w-12 items-center justify-center
               rounded-2xl bg-gradient-to-br
               from-[#1F3589] to-[#344F9B]
               text-[#F8D878] shadow-lg
               transition-all duration-500
               group-hover:rotate-6 group-hover:scale-110"
           >
-            <Icon size={28} strokeWidth={1.7} />
+            <Icon size={22} strokeWidth={1.7} />
           </div>
         </div>
 
         {/* Content */}
         <div className="flex flex-1 flex-col">
+          {/* Smaller title */}
           <h3
-            className="font-serif text-xl font-bold
-              tracking-tight text-[#1F3589] sm:text-2xl"
+            className="font-serif text-lg font-bold
+              tracking-tight text-[#1F3589] sm:text-xl"
             style={{ fontFamily: 'var(--font-serif)' }}
           >
             {card.title}
@@ -351,24 +353,24 @@ function StoryCard({ card, index }) {
 
           {/* Gold Accent */}
           <div
-            className="mt-3 mb-5 h-1 w-12 rounded-full
+            className="mt-3 mb-4 h-1 w-12 rounded-full
               bg-gradient-to-r from-[#E5A82B] to-[#F4D58A]
               transition-all duration-500
               group-hover:w-20"
             aria-hidden="true"
           />
 
-          {/* Collapsible Body */}
+          {/* Smaller Description */}
           <div className="relative flex-1">
             <div
               className="overflow-hidden
                 transition-[max-height] duration-700
                 ease-[cubic-bezier(0.22,1,0.36,1)]"
-              style={{ maxHeight: expanded ? 800 : 132 }}
+              style={{ maxHeight: expanded ? 800 : 110 }}
             >
               <p
-                className="text-sm leading-7
-                  text-[#646B7A] sm:text-base sm:leading-8"
+                className="text-xs leading-6
+                  text-[#646B7A] sm:text-sm sm:leading-7"
               >
                 {card.text}
               </p>
@@ -441,9 +443,10 @@ export function About() {
         aria-hidden="true"
       />
 
+      {/* Main Container */}
       <div
         className="relative z-10 mx-auto flex
-          w-full max-w-[1600px] flex-col gap-10
+          w-full max-w-6xl flex-col gap-10
           lg:gap-16"
       >
         {/* Main Heading */}
@@ -539,11 +542,11 @@ export function About() {
 
         {/* Conference Story Cards */}
         <div
-          className="relative overflow-hidden rounded-[2.5rem]
+          className="relative overflow-hidden rounded-[2rem]
             border border-[#1F3589]/[0.08]
             bg-gradient-to-br
             from-[#F5F0E5] via-[#FFFCF6] to-[#F4EDE0]
-            px-4 py-10 sm:px-8 md:px-12 md:py-14
+            px-4 py-6 sm:px-6 md:px-8 md:py-8
             shadow-[0_20px_60px_rgba(31,53,137,0.08)]"
         >
           {/* Panel Decorations */}
@@ -560,7 +563,7 @@ export function About() {
             aria-hidden="true"
           />
 
-          <div className="relative z-10 flex flex-col gap-6">
+          <div className="relative z-10 flex flex-col gap-4">
             {storyCards.map((card, index) => (
               <StoryCard
                 key={card.title}
