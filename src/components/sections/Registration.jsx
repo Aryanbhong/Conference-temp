@@ -235,7 +235,7 @@ export function Registration() {
                 {/* Submit Link */}
                 <div className="mt-5 border-t border-slate-100 pt-4">
                   <a
-                    href={conference.registrationUrl}
+                    href={'/'}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex w-full items-center justify-center gap-2 rounded-lg bg-[#1F3589] py-3 text-xs font-semibold text-white transition-colors duration-200 hover:bg-[#101D4B] sm:text-sm"
