@@ -522,7 +522,8 @@ export function Objectives() {
           />
         </div>
 
-        {/* Objective Cards */}
+
+        
         <div className="grid w-full grid-cols-1 gap-4 sm:grid-cols-2 lg:gap-5">
           {objectives.map((objective, index) => (
             <ObjectiveCard
