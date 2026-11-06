@@ -24,9 +24,9 @@ export function Header() {
   src="/Siescoms-logo.png?v=2"
   alt="SIES College of Management Studies logo"
   style={{
-    width: "180px",
+    width: "195px",
     height: "auto",
-    maxWidth: "180px",
+    maxWidth: "195px",
     display: "block",
   }}
 />
