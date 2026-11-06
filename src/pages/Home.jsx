@@ -27,15 +27,15 @@ export function Home() {
       <Hero />
       <QuickInfoBar />
       <ConferencePeople />
-      <PublicationOpportunities />
+        <Publications />
+      {/* <PublicationOpportunities /> */}
       <About />
       <Pillars />
       <Objectives />
       <SubmissionProcess />
       <CallForPapers />
       <Awards />
-      <Speakers />
-      {/* <Publications /> */}
+      <Speakers /> 
       <ImportantDates />
       <Guidelines />
       <Committee />
