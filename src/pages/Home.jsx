@@ -35,7 +35,7 @@ export function Home() {
       <CallForPapers />
       <Awards />
       <Speakers />
-      <Publications />
+      {/* <Publications /> */}
       <ImportantDates />
       <Guidelines />
       <Committee />
